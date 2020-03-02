@@ -9,7 +9,7 @@
 
 void show(PackIce packice)
 {
-	int max_size = packice.packsize;
+	int max_size = packice.size;
 	for (int i = 0; i<max_size; i++)
 	{
 		for (int j = 0; j < max_size; j++)

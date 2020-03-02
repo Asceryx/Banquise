@@ -1,7 +1,10 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-#include "packice.h"
+
+typedef struct Object Object;
+typedef struct Vector Vector;
+typedef struct Position Position;
 
 typedef struct Icecube Icecube;
 typedef struct Rock Rock;
@@ -9,32 +12,68 @@ typedef struct Spring Spring;
 typedef struct Hammer Hammer;
 typedef struct Trap Trap;
 
-struct Icecube {
-	Position *pos;
-	Vector *vec;
+struct Vector {
+	int dx;
+	int dy;
 };
 
-struct Rock {
-	Position *pos;
+struct Position {
+	int x;
+	int y;
 };
 
-struct Spring {
-	Position *pos;
+struct Object 
+{
+	char *type;
+	void *content;
 };
 
-struct Hammer {
-	Position *pos;
+struct Icecube
+{
+	Position pos;
+	Vector vect;
 };
 
-struct Trap {
-	Position *pos;
+struct Rock
+{
+	Position pos;
 };
 
+struct Spring
+{
+	Position pos;
+};
 
-void create(void *object);
+struct Hammer
+{
+	Position pos;
+	int rotation;
+};
 
-Position move(Icecube ice);
-void effect(void *object);
+struct Trap
+{
+	Position pos;
+};
+
+Icecube create_icecube(int init_x, int init_y);
+Rock create_rock(int init_x, int init_y);
+Spring create_spring(int init_x, int init_y);
+Hammer create_hammer(int init_x, int init_y);
+Trap create_trap(int init_x, int init_y);
+
+Object *create_icecube_object(int init_x, int init_y);
+Object *create_rock_object(int init_x, int init_y);
+Object *create_spring_object(int init_x, int init_y);
+Object *create_hammer_object(int init_x, int init_y);
+Object *create_trap_object(int init_x, int init_y);
+
+
+
+
+
+
+
+
 
 
 
