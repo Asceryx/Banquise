@@ -9,9 +9,9 @@
 #include "game.h"
 
 
-void init_position_departure_arrive(Packice *packice)
+void init_position_departure_arrive(PackIce *packice)
 {
-	int size = packice.size;
+	int size = packice->size;
 	int randomLineDepart = rand() % size;
 	int randomColumnDepart = rand() % size;
 
@@ -22,9 +22,9 @@ void init_position_departure_arrive(Packice *packice)
 	setBlockArrive(packice, randomLineArrive, randomColumnArrive);
 }
 
-void init_position_players(Packice packice, PlayerBoard *board)
+void init_position_players(PackIce packice, PlayerBoard *board)
 {
-	int size = board.nbPlayer;
+	int size = board->nbPlayer;
 	Position depart = packice.departure;
 	for(int i = 0; i<size; i++)
 	{
@@ -33,8 +33,4 @@ void init_position_players(Packice packice, PlayerBoard *board)
 	}
 }
 
-void init_position_objects(Packice packice)
-{
-	
-}
 

@@ -1,11 +1,9 @@
 #ifndef GAME_H
 #define GAME_H
 
-void init_position_departure_arrive(Packice *packice);
-void init_position_players(Packice packice, PlayerBoard *board);
+void init_position_departure_arrive(PackIce *packice);
+void init_position_players(PackIce packice, PlayerBoard *board);
 
-void globalWarming(Packice packice);
-Boolean pathFinding(Packice packice);
-Boolean isWinnable(Packice packice);
+void globalWarming(PackIce packice);
 
 #endif
