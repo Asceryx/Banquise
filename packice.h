@@ -7,7 +7,7 @@ typedef struct PackIce PackIce;
 struct Ice {
 	bool is_water;
 	Player *occuped_by;
-	Object on_it;
+	Object *on_it;
 	bool is_departure;
 	bool is_arrive;	
 };

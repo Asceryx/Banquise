@@ -33,5 +33,8 @@ void init_position_players(Packice packice, PlayerBoard *board)
 	}
 }
 
-void
+void init_position_objects(Packice packice)
+{
+	
+}
 

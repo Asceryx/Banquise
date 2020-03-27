@@ -22,8 +22,9 @@ PackIce packice_create(int size)
 			p.surface[i][j] = new_block;
 		}
 	}
-	p.departure = {0,0};
-	p.arrive = {0,0};
+	Position pos = {0,0};
+	p.departure = pos;
+	p.arrive = pos;
 	p.size = size;
 	return p;
 }
@@ -44,7 +45,6 @@ Ice getBlock(PackIce packice, int x, int y)
 {
 	return packice.surface[x][y];
 }
-
 
 void packice_destroy(PackIce packice)
 {
@@ -72,25 +72,27 @@ void setBlockDeparture(PackIce *packice, int x, int y)
 	if (packice->surface[x][y].is_arrive == false)
 	{
 		packice->surface[x][y].is_departure=true;
-		packice->departure = {x, y};
+		Position pos = {x,y};
+		packice->departure = pos;
 	}
 	else
 	{
-		setBlockDeparture(packice, (x+1) % packice.size, (y+1) % packice.size);
-	}
-	
+		setBlockDeparture(packice, (x+1) % packice->size, (y+1) % packice->size);
+	}	
 }
 
+/*
 void setBlockArrive(PackIce *packice, int x, int y)
 {
 	if (packice->surface[x][y].is_departure == false)
 	{
 		packice->surface[x][y].is_arrive=true;
-		packice->arrive = {x, y};
+		Position pos = {x,y};
+		packice->arrive = pos;
 	}
 	else
 	{
-		setBlockArrive(packice, (x+1) % packice.size, (y+1) % packice.size);
+		setBlockArrive(packice, (x+1) % packice->size, (y+1) % packice->size);
 	}	
 }
 
@@ -104,9 +106,9 @@ bool setPlayer(PackIce packice, Player player, int x, int y)
 	}
 	else
 	{
-		return setPlayer(packice, player, (x+1) % packice.size, y) || setPlayer(packice, player, x, (y+1) % packice.size) || setPlayer(packice, player, (x+1) % packice.size, (y+1) % packice.size);
+		return setPlayer(packice, player, (x+1) % packice->size, y) || setPlayer(packice, player, x, (y+1) % packice->size) || setPlayer(packice, player, (x+1) % packice->size, (y+1) % packice->size);
 	}
 }
-
+*/
 
 

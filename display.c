@@ -15,22 +15,19 @@ void show(PackIce packice)
 		for (int j = 0; j < max_size; j++)
 		{
 			Ice block = getBlock(packice,i,j);
-
-			if (!(block.is_water)){
+			if (!(block.is_water)) {
 				printf(" |%d : S : " , block.pos->x);
-				
 			}
 			else {
 				printf(" |%d : L : " , block.pos->x);
 			}
-
 			printf("%d| " , block.pos->y);
-			
-			
 		}
 		printf("\n");
 	}
 }
+
+
 
 
 

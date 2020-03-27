@@ -1,7 +1,6 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-
 typedef struct Object Object;
 typedef struct Vector Vector;
 typedef struct Position Position;
@@ -22,36 +21,30 @@ struct Position {
 	int y;
 };
 
-struct Object 
-{
+struct Object {
 	char *type;
 	void *content;
 };
 
-struct Icecube
-{
+struct Icecube {
 	Position pos;
 	Vector vect;
 };
 
-struct Rock
-{
+struct Rock {
 	Position pos;
 };
 
-struct Spring
-{
+struct Spring {
 	Position pos;
 };
 
-struct Hammer
-{
+struct Hammer {
 	Position pos;
 	int rotation;
 };
 
-struct Trap
-{
+struct Trap {
 	Position pos;
 };
 
@@ -66,15 +59,6 @@ Object *create_rock_object(int init_x, int init_y);
 Object *create_spring_object(int init_x, int init_y);
 Object *create_hammer_object(int init_x, int init_y);
 Object *create_trap_object(int init_x, int init_y);
-
-
-
-
-
-
-
-
-
-
+void *object_to_item(Object *object);
 
 #endif

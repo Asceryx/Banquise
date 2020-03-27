@@ -9,6 +9,10 @@
 
 int main () {
 	Object *o_icecube = create_icecube_object(2,3);
+	Icecube *item = object_to_item(o_icecube);
+	printf("%d", item->pos.x);
+
+
 	printf("%s\n", o_icecube->type);
 	Icecube *po = (Icecube *)o_icecube->content;
 	printf("%d : %d\n", po->pos.x, po->pos.y);

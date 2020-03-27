@@ -21,9 +21,8 @@ static void display_water(Ice block)
 	}
 }
 
-int main () {
-
-
+int main () 
+{
 	PackIce Banquise = packice_create(SIZE);
 	printf("%d\n", Banquise.size);
 
@@ -32,7 +31,6 @@ int main () {
 	setBlockWater(Banquise, 2 , 3);
 	Ice modifyblock = getBlock(Banquise, 2, 3);
 	display_water(modifyblock);
-
 	setSwitchIceWater(Banquise, 3 , 4);
 	Ice switchblock = getBlock(Banquise, 3, 4);
 	display_water(switchblock);

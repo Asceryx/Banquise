@@ -7,7 +7,7 @@
 
 
 
-static Object *create_object(void *item, char *name_type)
+static Object *create_object(void *item, char *name_type) 
 {
 	Object *object = malloc(sizeof(Object));
 	object->type = malloc((strlen(name_type) + 1) * sizeof(char));
@@ -17,7 +17,7 @@ static Object *create_object(void *item, char *name_type)
 	return object;
 }
 
-Icecube create_icecube(int init_x, int init_y)
+Icecube create_icecube(int init_x, int init_y) 
 {
 	Icecube icecube;
 	Position pos = {init_x, init_y};
@@ -110,27 +110,33 @@ void *object_to_item(Object *object)
 
 	if (strcmp(object->type, "icecube") == 0)
 	{
-		(Icecube *)item = object->content;
+		item = malloc(sizeof(Icecube));
+		Icecube *value = (Icecube *)object->content;
+		*((Icecube *)item) = *value;
 	}
 	else if(strcmp(object->type, "rock") == 0)
 	{
 		item = malloc(sizeof(Rock));
-		*((Rock *)item) = object->content;
+		Rock *value = (Rock *)object->content;
+		*((Rock *)item) = *value;
 	}
 	else if(strcmp(object->type, "spring") == 0)
 	{
 		item = malloc(sizeof(Spring));
-		*((Spring *)item) = object->content;	
+		Spring *value = (Spring *)object->content;
+		*((Spring *)item) = *value;
 	}
 	else if(strcmp(object->type, "hammer") == 0)
 	{
 		item = malloc(sizeof(Hammer));
-		*((Hammer *)item) = object->content;
+		Hammer *value = (Hammer *)object->content;
+		*((Hammer *)item) = *value;
 	}
 	else if(strcmp(object->type, "trap") == 0)
 	{
 		item = malloc(sizeof(Trap));
-		*((Trap *)item) = object->content;
+		Trap *value = (Trap *)object->content;
+		*((Trap *)item) = *value;
 	}
 	return item;
 }
