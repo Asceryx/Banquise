@@ -29,7 +29,6 @@ void setBlockWater(PackIce packice, int x, int y);
 void setSwitchIceWater(PackIce packice, int x, int y);
 void setBlockDeparture(PackIce *packice, int x, int y);
 void setBlockArrive(PackIce *packice, int x, int y);
-
-bool setPlayer(PackIce packice, Player player, int x, int y);
+bool setPlayer(PackIce *packice, Player player, int x, int y);
 
 #endif

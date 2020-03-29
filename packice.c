@@ -96,18 +96,20 @@ void setBlockArrive(PackIce *packice, int x, int y)
 	}	
 }
 
-bool setPlayer(PackIce packice, Player player, int x, int y)
+bool setPlayer(PackIce *packice, Player player, int x, int y)
 {
-	if(packice.surface[x][y].occuped_by == NULL)
+	int dx = (x+1) % packice->size;
+	int dy = (y+1) % packice->size;;
+	if(packice->surface[x][y].occuped_by == NULL && packice->surface[x][y].is_arrive==false && packice->surface[x][y].is_departure==false)
 	{
-		packice.surface[x][y].occuped_by = malloc(sizeof(Player));
-		packice.surface[x][y].occuped_by = &player;
+		packice->surface[x][y].occuped_by = malloc(sizeof(Player));
+		packice->surface[x][y].occuped_by = &player;
 		return true;
 	}
-	else
-	{
-		return setPlayer(packice, player, (x+1) % packice.size, y)  ||  setPlayer(packice, player, x, (y+1) % packice.size) || setPlayer(packice, player, (x+1) % packice.size, (y+1) % packice.size);
+	else if packice->surface[dx][y].occuped_by != NULL{
+		return setPlayer(packice, player,  dx, y) || setPlayer(packice, player,  x, dy);
 	}
+
 }
 
 

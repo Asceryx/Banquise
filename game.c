@@ -18,18 +18,20 @@ void init_position_departure_arrive(PackIce *packice)
 	int randomLineArrive = rand() % size;
 	int randomColumnArrive = rand() % size;
 
+
 	setBlockDeparture(packice, randomLineDepart, randomColumnDepart);
 	setBlockArrive(packice, randomLineArrive, randomColumnArrive);
 }
 
-void init_position_players(PackIce packice, PlayerBoard *board)
+void init_position_players(PackIce *packice, PlayerBoard *board)
 {
 	int size = board->nbPlayer;
-	Position depart = packice.departure;
+	printf("nb player %d\n", size);
+	Position depart = packice->departure;
 	for(int i = 0; i<size; i++)
 	{
 		Player unpositioned = getPlayerByIndex(i, board);
-		setPlayer(packice,unpositioned, depart.x, depart.y);
+		setPlayer(packice, unpositioned, depart.x, depart.y);
 	}
 }
 
